@@ -7,8 +7,8 @@ import 'package:river_raddit/src/theme/pallete.dart';
 class SignInButton extends ConsumerWidget {
   const SignInButton({super.key});
 
-  Future<void> signInWithGoogle(WidgetRef ref) async {
-    await ref.read(authControllerProvider).signInWithGoogle();
+  Future<void> signInWithGoogle(BuildContext context, WidgetRef ref) async {
+    await ref.read(authControllerProvider).signInWithGoogle(context);
   }
 
   @override
@@ -31,7 +31,7 @@ class SignInButton extends ConsumerWidget {
           style: TextStyle(fontSize: 18),
         ),
         onPressed: () async {
-          await signInWithGoogle(ref);
+          await signInWithGoogle(context, ref);
         },
       ),
     );
