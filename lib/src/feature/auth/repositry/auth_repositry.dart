@@ -28,6 +28,8 @@ class AuthRepositry {
     return _firestore.collection(FirebaseConstants.usersCollection);
   }
 
+  Stream<User?> get authStateChange => _auth.authStateChanges();
+
   AuthRepositry(this._firestore, this._auth, this._googleSignIn);
 
   FutureEither<UserModel> signInWithGoogle() async {
